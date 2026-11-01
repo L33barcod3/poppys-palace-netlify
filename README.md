@@ -36,6 +36,8 @@ Get the Home page looking great first, then build the other pages. Mark all plac
 
 This site started in [Lovable](https://lovable.dev) and now runs on **Netlify**. It is edited here in code, not in the Lovable editor.
 
+Live address, what changed from Lovable and what still needs filling in: see [SITE-NOTES.md](SITE-NOTES.md).
+
 - Almost everything you'd want to change (donate link, fundraising figures, charity details, events, gallery photos) is in `src/config/site.ts`.
 - Photos live in `public/images`.
 
