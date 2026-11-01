@@ -1,6 +1,3 @@
-import poppyPhoto from "../../public/images/poppy.jpg.asset.json";
-import pinkBowsPhoto from "../assets/poppy-pink-bows.jpeg.asset.json";
-import blowingKissPhoto from "../assets/poppy-blowing-kiss.jpeg.asset.json";
 import balloons from "../assets/gallery-balloons.jpg";
 import crownArt from "../assets/gallery-crown.jpg";
 import poppyFlowers from "../assets/gallery-poppy-flowers.jpg";
@@ -36,6 +33,11 @@ export const SOCIALS = {
   facebook: "https://facebook.com/",
   instagram: "https://instagram.com/",
 };
+
+// The two AI helper boxes on the Contact page ("Not sure where to start?" and
+// "Ask the palace") only worked inside Lovable, using Lovable's paid AI service.
+// They are switched off. Their words are kept in src/routes/contact.tsx.
+export const SHOW_AI_HELPERS = false;
 
 // Suggested donation amounts (they all go to DONATE_URL)
 export const SUGGESTED_AMOUNTS = [5, 10, 25, 50, 100];
@@ -84,21 +86,21 @@ export const EVENTS: PalaceEvent[] = [
 
 // GALLERY — the pictures shown on the Gallery page.
 // Three real photos of Poppy, followed by four gentle illustration stand-ins.
-// Uploaded photos stay unchanged and use CDN asset pointers in src/assets.
-// Add the pointer import above, then use its .url as the picture's "src".
+// Photos live in public/images. Put a new photo in that folder, then use
+// "/images/your-photo.jpg" as the picture's "src".
 // "tall: true" makes a picture stand upright; leave it out for a wide one.
 // "w" and "h" are the picture's own width and height — they stop the page
 // jumping about while the pictures load.
 export const GALLERY: { src?: string; alt: string; tall?: boolean; w?: number; h?: number }[] = [
   {
-    src: poppyPhoto.url,
+    src: "/images/poppy-floral-dress.jpg",
     alt: "Poppy smiling in her colourful floral dress, holding pink flowers",
     tall: true,
     w: 762,
     h: 1163,
   },
-  { src: pinkBowsPhoto.url, alt: "Poppy smiling with pink bows in her hair, sitting on a blue seat", tall: true, w: 1014, h: 1413 },
-  { src: blowingKissPhoto.url, alt: "Poppy blowing a kiss in a pink gingham dress and cardigan", tall: true, w: 720, h: 960 },
+  { src: "/images/poppy-pink-bows.jpg", alt: "Poppy smiling with pink bows in her hair, sitting on a blue seat", tall: true, w: 1014, h: 1413 },
+  { src: "/images/poppy-blowing-kiss.jpg", alt: "Poppy blowing a kiss in a pink gingham dress and cardigan", tall: true, w: 720, h: 960 },
   { src: poppyFlowers, alt: "Illustration of red poppy flowers swaying in a meadow", tall: true, w: 768, h: 1024 },
   { src: crownArt, alt: "Illustration of a jewelled golden crown resting on cream satin", w: 1024, h: 768 },
   { src: sunriseBird, alt: "Illustration of a small bird flying at sunrise among pink petals", tall: true, w: 768, h: 1024 },
@@ -106,7 +108,7 @@ export const GALLERY: { src?: string; alt: string; tall?: boolean; w?: number; h
 ];
 
 // Poppy's original photo, shared by the hero and Our story.
-export const POPPY_PHOTO = poppyPhoto.url;
+export const POPPY_PHOTO = "/images/poppy-floral-dress.jpg";
 
 export function splitEvents(today = new Date()) {
   const t = new Date(today.toDateString()).getTime();
