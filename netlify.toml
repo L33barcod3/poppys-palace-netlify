@@ -1,0 +1,9 @@
+# Netlify build settings for Poppy's Palace.
+# The Netlify TanStack Start plugin (see vite.config.ts) sets up the server
+# side, so every page — including direct links like /donate — works.
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "22"

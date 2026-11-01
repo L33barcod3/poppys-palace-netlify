@@ -3,7 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { LeafDivider, PageHeader, Reveal } from "@/components/Bits";
-import { CHARITY } from "@/config/site";
+import { CHARITY, SHOW_AI_HELPERS } from "@/config/site";
 import { enquirySchema, supportRequestSchema, TOPIC_LABELS, type Enquiry } from "@/lib/schemas";
 import { askPalaceQuestion, getSupportGuidance } from "@/lib/support.functions";
 
@@ -354,9 +354,13 @@ function Contact() {
         title="Come and say hello"
         intro="Whether you need a little support, want to help, or have an idea for fundraising — the palace door is always open."
       />
-      <SupportMatcher />
-      <LeafDivider />
-      <AskThePalace />
+      {SHOW_AI_HELPERS && (
+        <>
+          <SupportMatcher />
+          <LeafDivider />
+          <AskThePalace />
+        </>
+      )}
       <LeafDivider />
       <EnquiryForm />
       <LeafDivider flip />

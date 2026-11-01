@@ -32,25 +32,43 @@ Sticky navigation with the logo, page links and a Donate button, collapsing to a
 HOW TO WORK
 Get the Home page looking great first, then build the other pages. Mark all placeholder text clearly so I can find and replace it. I am not a developer, so keep everything simple and explain changes in plain English.
 
-This project was built with [Lovable](https://lovable.dev).
+## Where the site lives now
 
-**Live app**: https://poppys-palace.lovable.app
+This site started in [Lovable](https://lovable.dev) and now runs on **Netlify**. It is edited here in code, not in the Lovable editor.
 
-## Build with Lovable
+- Almost everything you'd want to change (donate link, fundraising figures, charity details, events, gallery photos) is in `src/config/site.ts`.
+- Photos live in `public/images`.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/d378f731-c66d-4472-b491-e155a5607539).
+### See the site on your computer
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need [Node.js](https://nodejs.org/) installed. In a terminal opened in this folder, run these once:
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
+```
+
+Then, every time you want to see it:
+
+```sh
 npm run dev
 ```
+
+Open the address it prints (http://localhost:3000). Each time you save a file, the page updates by itself. Press Ctrl+C in the terminal to stop it.
+
+### Put a change live
+
+After saving your changes, run:
+
+```sh
+netlify deploy --build --prod
+```
+
+Then save your changes to GitHub:
+
+```sh
+git add -A
+git commit -m "Say what you changed"
+git push
+```
+
+Note: the folder this site sits in must not have an apostrophe (') in its name, or the build fails.
