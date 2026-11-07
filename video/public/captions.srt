@@ -1,0 +1,15 @@
+1
+00:00:00,500 --> 00:00:02,500
+Welcome to your first 3D video
+
+2
+00:00:02,600 --> 00:00:05,000
+built with Three.js and Remotion
+
+3
+00:00:05,100 --> 00:00:07,500
+Swap in your own audio and captions
+
+4
+00:00:07,600 --> 00:00:09,800
+and render it to MP4.
