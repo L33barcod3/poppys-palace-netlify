@@ -29,6 +29,8 @@ const toWordCaptions = (lines: Caption[]): Caption[] =>
       endMs: line.startMs + (i + 1) * step,
       timestampMs: null,
       confidence: null,
+      // Never merge words from different subtitle lines onto one page.
+      pageBreakAfter: i === words.length - 1,
     }));
   });
 
@@ -80,7 +82,7 @@ export const Captions: React.FC<{ src: string; highlightColor: string }> = ({
         const endFrame = Math.round(
           Math.min(
             next ? (next.startMs / 1000) * fps : Infinity,
-            ((page.startMs + page.durationMs) / 1000) * fps,
+            (page.tokens[page.tokens.length - 1].toMs / 1000) * fps,
           ),
         );
         const durationInFrames = endFrame - startFrame;
