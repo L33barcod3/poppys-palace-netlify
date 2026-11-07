@@ -1,3 +1,5 @@
+import { VOICE_LINES } from "./voice-lines";
+
 // All timings in frames at 30 fps. Keep in sync with public/trade-mate.srt.
 export const FPS = 30;
 
@@ -14,15 +16,13 @@ export const T = {
   total: 540,
 } as const;
 
-// When each character is speaking (frames), used for mouth movement.
-export const SPEECH = {
-  a: [
-    [12, 114],
-    [129, 174],
-    [396, 444],
-  ],
-  b: [[186, 279]],
-} as const;
+// When each character is speaking (frames), from the generated voiceover.
+const toFrames = (speaker: "a" | "b") =>
+  VOICE_LINES.filter((l) => l.speaker === speaker).map(
+    (l) => [Math.round(l.start * FPS), Math.round(l.end * FPS)] as const,
+  );
+
+export const SPEECH = { a: toFrames("a"), b: toFrames("b") };
 
 export const isSpeaking = (
   frame: number,

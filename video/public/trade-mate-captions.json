@@ -1,0 +1,154 @@
+[
+  {
+    "text": " Pricing",
+    "startMs": 810,
+    "endMs": 880,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " up",
+    "startMs": 933,
+    "endMs": 1040,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " this",
+    "startMs": 1088,
+    "endMs": 1280,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " job",
+    "startMs": 1340,
+    "endMs": 1520,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " is",
+    "startMs": 1573,
+    "endMs": 1680,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " doing",
+    "startMs": 1733,
+    "endMs": 2000,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " my",
+    "startMs": 2053,
+    "endMs": 2160,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " head",
+    "startMs": 2224,
+    "endMs": 2480,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " in!",
+    "startMs": 2587,
+    "endMs": 2800,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " ARGH!",
+    "startMs": 4755,
+    "endMs": 5850,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " Try",
+    "startMs": 6340,
+    "endMs": 6360,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " the",
+    "startMs": 6400,
+    "endMs": 6520,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " Trade",
+    "startMs": 6573,
+    "endMs": 6840,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " M.A.T.E",
+    "startMs": 6920,
+    "endMs": 7240,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " app,",
+    "startMs": 7300,
+    "endMs": 7960,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " it's",
+    "startMs": 8013,
+    "endMs": 8280,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " great.",
+    "startMs": 8347,
+    "endMs": 9080,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " That's",
+    "startMs": 13402,
+    "endMs": 13520,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " boss!",
+    "startMs": 13680,
+    "endMs": 15120,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  }
+]
