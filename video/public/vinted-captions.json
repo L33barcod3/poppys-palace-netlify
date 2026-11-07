@@ -1,0 +1,122 @@
+[
+  {
+    "text": " Oh",
+    "startMs": 3533,
+    "endMs": 3560,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " my",
+    "startMs": 3667,
+    "endMs": 3880,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " god,",
+    "startMs": 3960,
+    "endMs": 4280,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " more",
+    "startMs": 4360,
+    "endMs": 4680,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " fuckin'",
+    "startMs": 4744,
+    "endMs": 5160,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " Cable",
+    "startMs": 5253,
+    "endMs": 5720,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " Guy",
+    "startMs": 5780,
+    "endMs": 5960,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " things",
+    "startMs": 6017,
+    "endMs": 6360,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " off",
+    "startMs": 6400,
+    "endMs": 6520,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " Vinted?!",
+    "startMs": 6600,
+    "endMs": 7480,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  },
+  {
+    "text": " But",
+    "startMs": 8148,
+    "endMs": 8160,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " they",
+    "startMs": 8192,
+    "endMs": 8320,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " were",
+    "startMs": 8352,
+    "endMs": 8480,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " six",
+    "startMs": 8580,
+    "endMs": 8880,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": false
+  },
+  {
+    "text": " quid.",
+    "startMs": 8933,
+    "endMs": 9680,
+    "timestampMs": null,
+    "confidence": null,
+    "pageBreakAfter": true
+  }
+]

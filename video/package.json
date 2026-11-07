@@ -38,7 +38,8 @@
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc",
     "render": "remotion render ThreeDVideo out/video.mp4",
-    "render:trade-mate": "remotion render TradeMate out/trade-mate.mp4"
+    "render:trade-mate": "remotion render TradeMate out/trade-mate.mp4",
+    "render:vinted": "remotion render Vinted out/vinted.mp4"
   },
   "allowScripts": {
     "esbuild": false
