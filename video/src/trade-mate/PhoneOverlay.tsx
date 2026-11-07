@@ -31,6 +31,14 @@ export const PhoneOverlay: React.FC<{ exitAt: number }> = ({ exitAt }) => {
   const itemIn = (i: number) =>
     spring({ frame: frame - 18 - i * 9, fps, config: { damping: 200 } });
   const totalIn = itemIn(LINES.length + 0.5);
+  // Total counts up as the line items land.
+  const total = Math.round(
+    interpolate(frame, [18, 52], [0, 4250], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: (t) => 1 - (1 - t) ** 3,
+    }),
+  );
   const pulse = 1 + 0.04 * Math.max(0, Math.sin((frame - 60) * 0.25));
 
   return (
@@ -133,7 +141,9 @@ export const PhoneOverlay: React.FC<{ exitAt: number }> = ({ exitAt }) => {
               }}
             >
               <span style={{ fontSize: 24, fontWeight: 700 }}>Total</span>
-              <span style={{ fontSize: 48, fontWeight: 800 }}>£4,250</span>
+              <span style={{ fontSize: 48, fontWeight: 800 }}>
+                £{total.toLocaleString("en-GB")}
+              </span>
             </div>
             <div style={{ flex: 1 }} />
             <div

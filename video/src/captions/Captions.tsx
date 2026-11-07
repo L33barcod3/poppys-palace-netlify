@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   AbsoluteFill,
   Sequence,
+  spring,
   useCurrentFrame,
   useDelayRender,
   useVideoConfig,
@@ -108,40 +109,65 @@ const CaptionPage: React.FC<{ page: TikTokPage; highlightColor: string }> = ({
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const absoluteTimeMs = page.startMs + (frame / fps) * 1000;
+  const enter = spring({ frame, fps, config: { damping: 14, stiffness: 180 } });
 
   return (
     <AbsoluteFill
       style={{
         justifyContent: "flex-end",
         alignItems: "center",
-        paddingBottom: 120,
+        paddingBottom: 110,
       }}
     >
       <div
         style={{
           fontFamily,
-          fontSize: 72,
+          fontSize: 70,
           fontWeight: 800,
           color: "white",
           whiteSpace: "pre-wrap",
           textAlign: "center",
           maxWidth: "80%",
-          textShadow: "0 4px 16px rgba(0,0,0,0.8)",
+          padding: "14px 34px 18px",
+          borderRadius: 28,
+          background: "rgba(12, 18, 38, 0.62)",
+          boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
+          transform: `scale(${0.85 + 0.15 * enter}) translateY(${(1 - enter) * 20}px)`,
+          opacity: enter,
         }}
       >
-        {page.tokens.map((token, i) => (
-          <span
-            key={`${token.fromMs}-${i}`}
-            style={{
-              color:
-                token.fromMs <= absoluteTimeMs && token.toMs > absoluteTimeMs
-                  ? highlightColor
-                  : "white",
-            }}
-          >
-            {token.text}
-          </span>
-        ))}
+        {page.tokens.map((token, i) => {
+          const active =
+            token.fromMs <= absoluteTimeMs && token.toMs > absoluteTimeMs;
+          const pop = active
+            ? spring({
+                frame:
+                  frame -
+                  Math.round(((token.fromMs - page.startMs) / 1000) * fps),
+                fps,
+                config: { damping: 10, stiffness: 220 },
+              })
+            : 0;
+          return (
+            <span key={`${token.fromMs}-${i}`}>
+              {/* Explicit gap: inline-block words swallow their own spaces */}
+              {i > 0 ? " " : null}
+              <span
+                style={{
+                  display: "inline-block",
+                  color: active ? highlightColor : "white",
+                  padding: "0 0.07em",
+                  transform: `scale(${1 + 0.1 * pop})`,
+                  textShadow: active
+                    ? `0 0 24px ${highlightColor}99`
+                    : "0 3px 10px rgba(0,0,0,0.5)",
+                }}
+              >
+                {token.text.trim()}
+              </span>
+            </span>
+          );
+        })}
       </div>
     </AbsoluteFill>
   );

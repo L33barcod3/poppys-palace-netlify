@@ -46,12 +46,22 @@ const SHOTS: Shot[] = [
   },
   {
     from: T.celebrate,
-    to: T.total,
+    to: T.endCard,
     pos: [
       [0, 1.9, 4.7],
-      [0, 1.8, 4.1],
+      [0, 1.8, 4.2],
     ],
     target: [0, 1.25, 0],
+  },
+  // End card: builders in the lower half, room for the logo stamp above.
+  {
+    from: T.endCard,
+    to: T.total,
+    pos: [
+      [0, 1.5, 5.6],
+      [0, 1.45, 5.2],
+    ],
+    target: [0, 2.0, 0],
   },
 ];
 
@@ -67,11 +77,12 @@ export const CameraRig: React.FC = () => {
       easing: Easing.inOut(Easing.quad),
     });
     const [a, b] = shot.pos;
-    // Camera shake when the tools hit the ground.
-    const shake =
-      frame >= T.release + 3 && frame < T.release + 25
-        ? 0.06 * (1 - (frame - T.release - 3) / 22)
+    const decay = (start: number, length: number, amount: number) =>
+      frame >= start && frame < start + length
+        ? amount * (1 - (frame - start) / length)
         : 0;
+    // Shake when the tools hit the ground, and a big one for the logo stamp.
+    const shake = decay(T.release + 7, 22, 0.06) + decay(T.stamp, 30, 0.14);
     camera.position.set(
       a[0] + (b[0] - a[0]) * p + Math.sin(frame * 2.3) * shake,
       a[1] + (b[1] - a[1]) * p + Math.cos(frame * 3.1) * shake,

@@ -13,7 +13,9 @@ export const T = {
   overlayOut: 372,
   celebrate: 390,
   endCard: 480,
-  total: 540,
+  // The logo stamps onto the screen; the thump knocks both builders over.
+  stamp: 488,
+  total: 570,
 } as const;
 
 // When each character is speaking (frames), from the generated voiceover.

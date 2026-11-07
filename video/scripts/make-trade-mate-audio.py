@@ -13,7 +13,7 @@ from pathlib import Path
 import numpy as np
 
 SR = 44100
-DURATION = 18.0
+DURATION = 19.0
 OUT = Path(__file__).resolve().parent.parent / "public" / "audio"
 rng = np.random.default_rng(7)
 
@@ -117,6 +117,16 @@ def thud():
     return np.sin(2 * np.pi * np.cumsum(pitch) / SR) * np.exp(-t * 14)
 
 
+def boom():
+    # The logo stamp: deep sub drop, a slap of noise and a metallic ring.
+    t = t_axis(1.8)
+    pitch = 32 + 90 * np.exp(-t * 18)
+    sub = np.sin(2 * np.pi * np.cumsum(pitch) / SR) * np.exp(-t * 2.6)
+    slap = lowpass(rng.standard_normal(len(t)), 0.25) * np.exp(-t * 30) * 1.4
+    ring = clang(180, 1.8) * 0.25
+    return sub * 1.2 + slap + ring
+
+
 def blip(freq, seconds=0.12):
     t = t_axis(seconds)
     return np.sin(2 * np.pi * freq * t) * np.exp(-t * 30) * np.minimum(1, t * 800)
@@ -186,10 +196,9 @@ def build_music():
                 place(music, pluck(note_hz(melody[idx]), 0.4, 8), at, 0.35)
                 place(music, pluck(note_hz(melody[(idx + 1) % len(melody)]), 0.4, 8), at + beat / 2, 0.3)
 
-    # 16 s: end card sting, a big C major chord ringing out.
+    # 16.27 s: logo stamp lands; big C major chord rings out under it.
     for n in ["C3", "C4", "E4", "G4", "C5", "E5"]:
-        place(music, pluck(note_hz(n), 2.0, 8), 16.15, 0.3)
-    place(music, kick(), 16.15, 0.8)
+        place(music, pluck(note_hz(n), 2.5, 8), 16.27, 0.3)
     return music
 
 
@@ -201,6 +210,7 @@ def build_sfx():
     # Impacts (computed from the physics in FallingTools.tsx).
     place(sfx, clang(520), 5.252, 0.55)
     place(sfx, thud(), 5.252, 0.9)
+    place(sfx, boom() * 0.25, 5.252, 0.6)
     place(sfx, clang(880), 5.272, 0.45)
     place(sfx, clang(520), 5.607, 0.2)
     place(sfx, clang(880), 5.619, 0.18)
@@ -217,8 +227,11 @@ def build_sfx():
     # Celebration sparkle.
     for i, n in enumerate(["C6", "E6", "G6", "C7"]):
         place(sfx, blip(note_hz(n), 0.2), 13.0 + i * 0.06, 0.25)
-    # End card.
-    place(sfx, whoosh(0.4), 15.8, 0.3)
+    # End card: logo falls, STAMPS (frame 488), builders hit the deck.
+    place(sfx, whoosh(0.3, rising=True), 15.98, 0.45)
+    place(sfx, boom(), 16.267, 1.0)
+    place(sfx, thud(), 16.467, 0.8)  # builder A lands (frame 494)
+    place(sfx, thud(), 16.567, 0.8)  # builder B lands (frame 497)
     return sfx
 
 
